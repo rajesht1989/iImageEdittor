@@ -13,10 +13,11 @@
 		9204ABC01AAADB41006BCD5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9204ABBF1AAADB41006BCD5A /* Images.xcassets */; };
 		9204ABC31AAADB41006BCD5A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9204ABC11AAADB41006BCD5A /* LaunchScreen.xib */; };
 		9204ABDA1AAAE00C006BCD5A /* ImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9204ABD91AAAE00C006BCD5A /* ImagePreviewController.m */; };
+		92F197071BC3B35C003401AC /* Launch icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F197061BC3B35C003401AC /* Launch icon.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9204ABAF1AAADB41006BCD5A /* CameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9204ABAF1AAADB41006BCD5A /* CameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = CameraApp.app; path = iImageEdittor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9204ABB31AAADB41006BCD5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9204ABB41AAADB41006BCD5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9204ABB61AAADB41006BCD5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -27,6 +28,7 @@
 		9204ABC21AAADB41006BCD5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9204ABD81AAAE00C006BCD5A /* ImagePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePreviewController.h; sourceTree = "<group>"; };
 		9204ABD91AAAE00C006BCD5A /* ImagePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePreviewController.m; sourceTree = "<group>"; };
+		92F197061BC3B35C003401AC /* Launch icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				9204ABBA1AAADB41006BCD5A /* ViewController.m */,
 				9204ABD81AAAE00C006BCD5A /* ImagePreviewController.h */,
 				9204ABD91AAAE00C006BCD5A /* ImagePreviewController.m */,
+				92F197061BC3B35C003401AC /* Launch icon.png */,
 				9204ABBF1AAADB41006BCD5A /* Images.xcassets */,
 				9204ABC11AAADB41006BCD5A /* LaunchScreen.xib */,
 				9204ABB21AAADB41006BCD5A /* Supporting Files */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9204ABC31AAADB41006BCD5A /* LaunchScreen.xib in Resources */,
+				92F197071BC3B35C003401AC /* Launch icon.png in Resources */,
 				9204ABC01AAADB41006BCD5A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
