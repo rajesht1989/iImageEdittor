@@ -39,7 +39,7 @@
     imageRect = cropRect;
     CGFloat aspectRatio = self.image.size.width / self.image.size.height;
     CGFloat zoomScale;
-
+    
     if (aspectRatio > 1)//Landscape Image
     {
         imageRect.size.width = fSmallerSide*aspectRatio;
@@ -87,7 +87,7 @@
     [done setTitle:@"Done" forState:UIControlStateNormal];
     [done addTarget:self action:@selector(doneTapped) forControlEvents:UIControlEventTouchUpInside];
     [bottombuttonView addSubview:done];
-
+    
 }
 
 - (UIImageView *)transparentMaskView
@@ -113,7 +113,7 @@
     {
         cropBeziarPath = [UIBezierPath bezierPathWithOvalInRect:cropRect];
     }
-
+    
     [clipPath appendPath:cropBeziarPath];
     clipPath.usesEvenOddFillRule = YES;
     [[UIColor colorWithWhite:0 alpha:0.5] setFill];

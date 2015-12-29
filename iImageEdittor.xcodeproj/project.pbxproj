@@ -13,7 +13,7 @@
 		9204ABC01AAADB41006BCD5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9204ABBF1AAADB41006BCD5A /* Images.xcassets */; };
 		9204ABC31AAADB41006BCD5A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9204ABC11AAADB41006BCD5A /* LaunchScreen.xib */; };
 		9204ABDA1AAAE00C006BCD5A /* ImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9204ABD91AAAE00C006BCD5A /* ImagePreviewController.m */; };
-		92F197071BC3B35C003401AC /* Launch icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F197061BC3B35C003401AC /* Launch icon.png */; settings = {ASSET_TAGS = (); }; };
+		92F197071BC3B35C003401AC /* Launch icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F197061BC3B35C003401AC /* Launch icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		9204ABA61AAADB41006BCD5A = {
 			isa = PBXGroup;
 			children = (
-				9204ABB11AAADB41006BCD5A /* CameraApp */,
+				9204ABB11AAADB41006BCD5A /* iImageEdittor */,
 				9204ABB01AAADB41006BCD5A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,7 +58,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9204ABB11AAADB41006BCD5A /* CameraApp */ = {
+		9204ABB11AAADB41006BCD5A /* iImageEdittor */ = {
 			isa = PBXGroup;
 			children = (
 				9204ABB61AAADB41006BCD5A /* AppDelegate.h */,
@@ -72,7 +72,8 @@
 				9204ABC11AAADB41006BCD5A /* LaunchScreen.xib */,
 				9204ABB21AAADB41006BCD5A /* Supporting Files */,
 			);
-			path = CameraApp;
+			name = iImageEdittor;
+			path = iImageEdittor;
 			sourceTree = "<group>";
 		};
 		9204ABB21AAADB41006BCD5A /* Supporting Files */ = {
@@ -100,7 +101,7 @@
 			dependencies = (
 			);
 			name = iImageEdittor;
-			productName = CameraApp;
+			productName = iImageEdittor;
 			productReference = 9204ABAF1AAADB41006BCD5A /* iImageEdittor.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -258,8 +259,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CameraApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				INFOPLIST_FILE = iImageEdittor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myorg.myproj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -270,8 +271,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CameraApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				INFOPLIST_FILE = iImageEdittor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myorg.myproj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
