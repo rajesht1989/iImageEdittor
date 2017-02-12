@@ -9,7 +9,5 @@
 
 @interface ViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-- (void)croppedImage:(UIImage *)image;
-
 @end
 

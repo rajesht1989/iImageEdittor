@@ -7,10 +7,10 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum{
+typedef enum {
     CropShapeRect = 0,
     CropShapeOval
-}CropShape;
+} CropShape;
 
 struct ImageCropingAttributes {
     CropShape shape;
@@ -18,13 +18,14 @@ struct ImageCropingAttributes {
     float heightFactor;
 };
 
-@interface ImagePreviewController : UIViewController<UIScrollViewDelegate>
-{
+@interface ImagePreviewController : UIViewController {
     UIScrollView *scrollView;
     UIImageView *imageView;
     CGRect cropRect;
 }
-@property(nonatomic,strong)UIImage *image;
-@property(nonatomic,assign)struct ImageCropingAttributes attributes;
-@property(nonatomic,assign)id delegate;
+
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, assign) struct ImageCropingAttributes attributes;
+@property (nonatomic, copy) void (^imageCompletion)(UIImage *);
+
 @end

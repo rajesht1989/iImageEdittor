@@ -13,6 +13,7 @@
 		9204ABC01AAADB41006BCD5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9204ABBF1AAADB41006BCD5A /* Images.xcassets */; };
 		9204ABC31AAADB41006BCD5A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9204ABC11AAADB41006BCD5A /* LaunchScreen.xib */; };
 		9204ABDA1AAAE00C006BCD5A /* ImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9204ABD91AAAE00C006BCD5A /* ImagePreviewController.m */; };
+		9291F1731E50288900F7EC64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9291F1721E50288900F7EC64 /* Main.storyboard */; };
 		92F197071BC3B35C003401AC /* Launch icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F197061BC3B35C003401AC /* Launch icon.png */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		9204ABC21AAADB41006BCD5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9204ABD81AAAE00C006BCD5A /* ImagePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePreviewController.h; sourceTree = "<group>"; };
 		9204ABD91AAAE00C006BCD5A /* ImagePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePreviewController.m; sourceTree = "<group>"; };
+		9291F1721E50288900F7EC64 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		92F197061BC3B35C003401AC /* Launch icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,12 +69,12 @@
 				9204ABBA1AAADB41006BCD5A /* ViewController.m */,
 				9204ABD81AAAE00C006BCD5A /* ImagePreviewController.h */,
 				9204ABD91AAAE00C006BCD5A /* ImagePreviewController.m */,
+				9291F1721E50288900F7EC64 /* Main.storyboard */,
 				92F197061BC3B35C003401AC /* Launch icon.png */,
 				9204ABBF1AAADB41006BCD5A /* Images.xcassets */,
 				9204ABC11AAADB41006BCD5A /* LaunchScreen.xib */,
 				9204ABB21AAADB41006BCD5A /* Supporting Files */,
 			);
-			name = iImageEdittor;
 			path = iImageEdittor;
 			sourceTree = "<group>";
 		};
@@ -111,11 +113,13 @@
 		9204ABA71AAADB41006BCD5A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = ZOHO;
 				TargetAttributes = {
 					9204ABAE1AAADB41006BCD5A = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = RDBAA992Q3;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -145,6 +149,7 @@
 				9204ABC31AAADB41006BCD5A /* LaunchScreen.xib in Resources */,
 				92F197071BC3B35C003401AC /* Launch icon.png in Resources */,
 				9204ABC01AAADB41006BCD5A /* Images.xcassets in Resources */,
+				9291F1731E50288900F7EC64 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,8 +194,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -199,6 +206,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -232,8 +240,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -241,6 +251,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -259,11 +270,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RDBAA992Q3;
 				INFOPLIST_FILE = iImageEdittor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myorg.myproj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4aafef38-910e-4874-beb4-c985dea01e4a";
+				PROVISIONING_PROFILE_SPECIFIER = WildCard;
 			};
 			name = Debug;
 		};
@@ -271,6 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = iImageEdittor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

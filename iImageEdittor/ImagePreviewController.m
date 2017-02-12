@@ -6,33 +6,30 @@
 //
 
 #import "ImagePreviewController.h"
-#import "ViewController.h"
 
-@interface ImagePreviewController()
-{
+@interface ImagePreviewController() <UIScrollViewDelegate> {
     UIBezierPath *cropBeziarPath;
 }
+
 @property (nonatomic, readonly) UIImageView *transparentMaskView;
+
 @end
 
 @implementation ImagePreviewController
+
 @synthesize transparentMaskView= _transparentMaskView;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self applyCropWithWidth:self.attributes.widthFactor andHeight:self.attributes.heightFactor];
 }
--(void) applyCropWithWidth:(CGFloat) widthFactor andHeight:(CGFloat) heightFactor
-{
+
+- (void) applyCropWithWidth:(CGFloat) widthFactor andHeight:(CGFloat) heightFactor {
     CGRect imageRect = self.view.bounds;
     CGFloat fSmallerSide = imageRect.size.width < imageRect.size.height ? imageRect.size.width : imageRect.size.height;
-    if (widthFactor>=heightFactor)
-    {
+    if (widthFactor>=heightFactor) {
         cropRect = CGRectMake(0,(imageRect.size.height - (heightFactor*imageRect.size.width/widthFactor))/2.0f ,imageRect.size.width,heightFactor*imageRect.size.width/widthFactor );
-    }
-    else
-    {
+    } else {
         cropRect = CGRectMake((imageRect.size.width - (imageRect.size.height*widthFactor/heightFactor))/2.0f,0,imageRect.size.height*widthFactor/heightFactor,imageRect.size.height );
         
     }
@@ -40,14 +37,11 @@
     CGFloat aspectRatio = self.image.size.width / self.image.size.height;
     CGFloat zoomScale;
     
-    if (aspectRatio > 1)//Landscape Image
-    {
+    if (aspectRatio > 1) { //Landscape Image
         imageRect.size.width = fSmallerSide*aspectRatio;
         imageRect.size.height = fSmallerSide;
         zoomScale = cropRect.size.height / imageRect.size.height;
-    }
-    else
-    {
+    } else {
         imageRect.size.width = fSmallerSide;
         imageRect.size.height = fSmallerSide/aspectRatio;
         zoomScale = imageRect.size.width/cropRect.size.width;
@@ -76,7 +70,6 @@
     
     UIView *bottombuttonView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 40, self.view.bounds.size.width, 40)];
     [bottombuttonView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
-    [bottombuttonView setTag:1234];
     [self.view addSubview:bottombuttonView];
     
     UIButton *cancel = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, 60, 40)];
@@ -90,27 +83,21 @@
     
 }
 
-- (UIImageView *)transparentMaskView
-{
-    if (!_transparentMaskView)
-    {
+- (UIImageView *)transparentMaskView {
+    if (!_transparentMaskView) {
         _transparentMaskView = [[UIImageView alloc] initWithImage:[self transparentImage]];
         _transparentMaskView.userInteractionEnabled = NO;
     }
     return _transparentMaskView;
 }
 
-- (UIImage *)transparentImage
-{
+- (UIImage *)transparentImage {
     CGRect bounds = self.view.bounds;
     UIGraphicsBeginImageContextWithOptions(bounds.size, NO, 0.f);
     UIBezierPath *clipPath = [UIBezierPath bezierPathWithRect:bounds];
-    if (self.attributes.shape == CropShapeRect)
-    {
+    if (self.attributes.shape == CropShapeRect) {
         cropBeziarPath = [UIBezierPath bezierPathWithRect:cropRect];
-    }
-    else
-    {
+    } else {
         cropBeziarPath = [UIBezierPath bezierPathWithOvalInRect:cropRect];
     }
     
@@ -129,8 +116,8 @@
     
     return image;
 }
-- (UIImage *)getimageInRect:(CGRect)visibleRect
-{
+
+- (UIImage *)getimageInRect:(CGRect)visibleRect {
     UIGraphicsBeginImageContext(visibleRect.size);
     CGContextTranslateCTM(UIGraphicsGetCurrentContext(), visibleRect.origin.x,
                           visibleRect.origin.y);
@@ -141,22 +128,38 @@
     return viewImage;
 }
 
-
-
-- (void)cancelTapped
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-- (void)doneTapped
-{
-    [[self.view viewWithTag:1234]removeFromSuperview];
-    [(ViewController *)self.delegate croppedImage:[self croppedImage:[ImagePreviewController imageWithView:self.view]]];
+- (void)cancelTapped {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)doneTapped {
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (_imageCompletion)_imageCompletion(self.processedImage);
+    }];
+}
 
-+ (UIImage *) imageWithView:(UIView *)view
-{
+- (UIImage *)processedImage {
+    UIImage *imageFromView = [ImagePreviewController imageWithView:self.view];
+    UIImage *imagePathFilled = [self croppedImage:imageFromView];
+    return [self cropImage:imagePathFilled ofRect:cropRect];
+}
+
+
+- (UIImage *)cropImage:(UIImage *)image ofRect:(CGRect)rect {
+    if (image.scale > 1.0f) {
+        rect = CGRectMake(rect.origin.x * image.scale,
+                          rect.origin.y * image.scale,
+                          rect.size.width * image.scale,
+                          rect.size.height * image.scale);
+    }
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect(image.CGImage, rect);
+    UIImage *result = [UIImage imageWithCGImage:imageRef scale:image.scale orientation:image.imageOrientation];
+    CGImageRelease(imageRef);
+    return result;
+}
+
++ (UIImage *) imageWithView:(UIView *)view {
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
     
@@ -167,10 +170,7 @@
     return img;
 }
 
-- (UIImage *)croppedImage:(UIImage *)image
-
-{
-    
+- (UIImage *)croppedImage:(UIImage *)image {
     [cropBeziarPath closePath];
     
     // Load image thumbnail
@@ -185,10 +185,11 @@
     UIGraphicsEndImageContext();
     return croppedImage;
 }
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
-{
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return imageView;
 }
+
 @end
 
 
